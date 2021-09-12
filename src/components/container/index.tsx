@@ -10,7 +10,7 @@ const MainContainer: FC = () => {
             <Flex flexDirection="column" mt="20">
                 <TaskInput />
                 <Stack spacing={3} mt="20">
-                    <TodoItem />
+                    <TodoItem task={{ task: 'Go to gym this morning', status: 'completed', time: 'Tomorrow' }} />
                 </Stack>
             </Flex>
         </Container>
