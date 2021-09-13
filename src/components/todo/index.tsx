@@ -17,7 +17,7 @@ const TodoItem: FC = ({ task }: Props) => {
                         {task.status === "pending" ? <Badge fontSize="x-small" >pending</Badge> : <Badge fontSize="x-small" colorScheme="twitter">completed</Badge>}
                     </Box>
                     <Text fontSize="md">{task.task}</Text>
-                    <Text fontSize="xs" color="GrayText">{task.time}</Text>
+                    <Text fontSize="xs" color="GrayText">{task.created_on}</Text>
                 </Stack>
                 <Stack alignItems="center" justifyContent="flex-end" spacing={3}>
                     <Button leftIcon={<CheckIcon />} colorScheme="teal" variant="solid" size="xs">
