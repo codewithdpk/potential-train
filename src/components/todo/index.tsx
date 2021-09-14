@@ -13,9 +13,10 @@ const TodoItem: FC = ({ task }: Props) => {
         <Box boxShadow="xs" p="4" rounded="md" bg="white">
             <Flex flexDir="row" alignItems="center">
                 <Stack width="85%">
-                    <Box>
-                        {task.status === "pending" ? <Badge fontSize="x-small" >pending</Badge> : <Badge fontSize="x-small" colorScheme="twitter">completed</Badge>}
-                    </Box>
+                    <Stack direction="row" spacing={3}>
+                        {task.status.toLocaleLowerCase() === "pending" ? <Badge fontSize="x-small" >pending</Badge> : <Badge fontSize="x-small" colorScheme="twitter">completed</Badge>}
+                        {task.tags.map((tag)=><Badge fontSize="x-small" colorScheme = "cyan">{tag}</Badge>)}
+                    </Stack>
                     <Text fontSize="md">{task.task}</Text>
                     <Text fontSize="xs" color="GrayText">{task.created_on}</Text>
                 </Stack>
