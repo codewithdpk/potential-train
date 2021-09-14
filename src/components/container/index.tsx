@@ -21,7 +21,7 @@ const MainContainer: FC = () => {
 
     const addTask = (e:React.MouseEvent<HTMLElement>):void =>{
         e.preventDefault();
-        setTasks([...tasks,{ task_id:getID(),task:task,tags:tags,created_by:currentUser,created_on:getCurDate(),status:'Pending'}])
+        setTasks([...tasks,{ task_id:getID(),task:task,tags:tags,created_by:currentUser,created_on:getCurDate(deadline),status:'Pending'}])
         setTask("");
         setTags([]);
         setDeadline(new Date());
@@ -38,6 +38,12 @@ const MainContainer: FC = () => {
         setTasks(hold);
     }
 
+    const deleteTask = (task_id:string):void =>{
+        let hold:Array<ITask> = tasks.filter((task:ITask)=> { return task.task_id !== task_id });
+        console.log(hold);
+        setTasks(hold);
+    }
+
 
 
     return (
@@ -47,7 +53,7 @@ const MainContainer: FC = () => {
                 <Stack spacing={3} mt="20">
                     {tasks.map((task:ITask,index:number)=>{
                         return(
-                            <TodoItem task={task} key ={index} markAsDone = {markAsDone}/>
+                            <TodoItem task={task} key ={index} markAsDone = {markAsDone} deleteTask = {deleteTask}/>
                         )
                     })}
                 </Stack>

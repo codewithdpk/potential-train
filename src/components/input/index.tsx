@@ -55,7 +55,7 @@ const TaskInput: FC = ({deadline,task,tags,handleTags,setTask,addTask,cancelTask
           <DatePicker
               id="published-date"
               selectedDate={deadline}
-              onChange={(d)=>setDeadline(d)}
+              onChange={(d)=>{setDeadline(d)}}
               showPopperArrow={true}
             />
            </InputGroup>

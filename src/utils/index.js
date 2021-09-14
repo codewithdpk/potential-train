@@ -5,13 +5,13 @@ export const getID = () => {
   return "_" + Math.random().toString(36).substr(2, 9);
 };
 
-export const getCurDate = () => {
+export const getCurDate = (date) => {
   var options = {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
   };
-  var today = new Date();
+  var today = new Date(date);
   return today.toLocaleDateString("hi-IN", options).toString();
 };

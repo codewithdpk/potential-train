@@ -6,10 +6,11 @@ import { ITask } from '../../interfaces';
 
 interface Props {
     task: ITask
-    markAsDone(id:string):void
+    markAsDone(id:string):void,
+    deleteTask(id:string):void
 }
 
-const TodoItem: FC = ({ task ,markAsDone}: Props) => {
+const TodoItem: FC = ({ task ,markAsDone, deleteTask }: Props) => {
     return (
         <Box boxShadow="xs" p="4" rounded="md" bg="white">
             <Flex flexDir="row" alignItems="center">
@@ -25,7 +26,7 @@ const TodoItem: FC = ({ task ,markAsDone}: Props) => {
                     <Button leftIcon={<CheckIcon />} colorScheme="teal" variant="solid" size="xs" onClick = {()=>markAsDone(task.task_id)}>
                         Done
                     </Button>
-                    <Button leftIcon={<DeleteIcon />} variant="solid" size="xs" colorScheme="red">
+                    <Button leftIcon={<DeleteIcon />} variant="solid" size="xs" colorScheme="red" onClick ={()=>deleteTask(task.task_id)}>
                         Delete
                     </Button>
                 </Stack>
