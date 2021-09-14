@@ -33,6 +33,11 @@ const MainContainer: FC = () => {
         setDeadline(new Date());
     }
 
+    const markAsDone = (task_id:string):void =>{
+        let hold:Array<ITask> = tasks.map((task:ITask)=> {return task.task_id === task_id ? {...task,status:'completed'} : {...task}});
+        setTasks(hold);
+    }
+
 
 
     return (
@@ -42,7 +47,7 @@ const MainContainer: FC = () => {
                 <Stack spacing={3} mt="20">
                     {tasks.map((task:ITask,index:number)=>{
                         return(
-                            <TodoItem task={task} key ={index}/>
+                            <TodoItem task={task} key ={index} markAsDone = {markAsDone}/>
                         )
                     })}
                 </Stack>
